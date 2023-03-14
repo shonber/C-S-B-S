@@ -51,7 +51,7 @@ public class BinNodeFunctions{
     }
 
     public static void PostOrderScan<T>(BinNode<T> bt){
-        // Left, Head, Right
+        // Left, Right, Head
 
         if (bt != null){
             PostOrderScan(bt.GetLeft());
