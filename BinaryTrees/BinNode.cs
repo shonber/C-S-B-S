@@ -18,15 +18,15 @@ public class BinNode<T>
     }
     public T GetValue()
     {
-        return value;
+        return this.value;
     }
     public BinNode<T> GetLeft()
     {
-        return left;
+        return this.left;
     }
     public BinNode<T> GetRight()
     {
-        return right;
+        return this.right;
     }
     public void SetValue(T value)
     {
@@ -42,6 +42,6 @@ public class BinNode<T>
     }
     public override string ToString()
     {
-        return "( " + left + " " + value + " " + right + " )";
+        return "( " + this.left + " " + this.value + " " + this.right + " )";
     }
 }
