@@ -59,4 +59,41 @@ public class BinNodeFunctions{
             Console.Write(bt.GetValue() + " ");
         }
     }
+
+    public static int Count2Child<T>(BinNode<T> bt){
+        if (bt != null){
+            if (bt.GetLeft() != null && bt.GetRight() != null)
+                if (!IsLeaf(bt.GetLeft()) && !IsLeaf(bt.GetRight())){
+                    return Count2Child(bt.GetLeft()) + Count2Child(bt.GetRight()) + 1;
+                }
+                return Count2Child(bt.GetLeft()) + Count2Child(bt.GetRight());
+        }
+        return 0;
+    }
+
+    public static bool IsLeaf<T>(BinNode<T> bt){
+        if (bt.GetLeft() == null && bt.GetRight() == null)
+            return true;
+        return false;
+    }
+    
+    public static bool IsExists<T>(BinNode<T> bt, T value){
+        if (bt != null){
+            if (bt.GetValue().Equals(value))
+                return true;
+            return (IsExists(bt.GetLeft(), value) || IsExists(bt.GetRight(), value));
+        }
+        return false;
+    }
+
+    public static bool IsContained<T>(BinNode<T> bt1, BinNode<T> bt2){
+        // Checks if all bt2 nodes are inside bt1
+        if (bt2 == null){
+            return false;
+        }
+        if (!IsExists(bt1, bt2.GetValue())){
+            return false;
+        }
+        return (IsContained(bt1, bt2.GetLeft()) || IsContained(bt1, bt2.GetRight()));
+    }
 }

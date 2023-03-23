@@ -1,185 +1,145 @@
 using System;
 
-namespace cshrap
-{
+namespace C_S_B_S{
     public class NodeFunctions{
-        public static Node<int> Calc(Node<char> l1){
-            Node<int> l2 = null, temp;
+        public static Node<int> Calc(Node<char> lst){
+            Node<char> p = lst;
+            Node<int> resultLst = null, temp = null;
             int x, y;
-            char z;
 
-            while (l1.HasNext()){
+            while (p.HasNext()){
                 // 48 --> 0 
-                x = (int)l1.GetValue() - 48;
-                y = (int)l1.GetNext().GetNext().GetValue() - 48;
+                x = (int)p.GetValue() - 48;
+                y = (int)p.GetNext().GetNext().GetValue() - 48;
 
-                switch(l1.GetNext().GetValue()){
+                switch(p.GetNext().GetValue()){
                     case '+':
                         temp = new Node<int> (x+y);
-                        AddNode(l2, temp);
+                        AddNode(resultLst, temp);
                         break;
                     case '-':
                         temp = new Node<int> (x-y);
-                        AddNode(l2, temp);
+                        AddNode(resultLst, temp);
                         break;
                     case '/':
                         temp = new Node<int> (x/y);
-                        AddNode(l2, temp);
+                        AddNode(resultLst, temp);
                         break;
                     case '*':
                         temp = new Node<int> (x*y);
-                        AddNode(l2, temp);
+                        AddNode(resultLst, temp);
                         break;
                 }
-                l1 = l1.GetNext();
+                p = p.GetNext();
             }
-            return l2;
+            return resultLst;
         }
 
-        public static Node<int> AddNode(Node<int> nodeList, Node<int> add){
-            Node<int> head = nodeList;
+        public static Node<T> AddNode<T>(Node<T> lst, Node<T> node){
+            Node<T> p = lst;
 
-            if (head == null){
-                head = add;
+            if (p == null){
+                p = node;
             }else{
-                while(head.HasNext())
-                    head = head.GetNext();
-                head.SetNext(add);
+                while(p.HasNext())
+                    p = p.GetNext();
+                p.SetNext(node);
             }
-            return head;
+            return p;
         }
 
-        public static Node<char> AddNode(Node<char> nodeList, Node<char> add){
-            Node<char> head = nodeList;
+        public static Node<string> IsSortedString(Node<string> lst){
+            // Checks if the list<string> nodes are sorted in the ABCs. 
+            // Returns the string that destroys the UpSort.
+            Node<string> p = lst;
 
-            if (head == null){
-                head = add;
-            }else{
-                while(head.HasNext())
-                    head = head.GetNext();
-                head.SetNext(add);
-            }
-            return head;
-        }
-
-        public static Node<string> IsSortedString(Node<string> l1){
-            Node<string> pos = l1;
-
-            while (pos.HasNext()){
-                if (string.Compare(l1.GetValue(), pos.GetNext().GetValue()) == -1){
-                    pos = pos.GetNext();
+            while (p.HasNext()){
+                if (string.Compare(p.GetValue(), p.GetNext().GetValue()) == -1){
+                    p = p.GetNext();
                 }else{
-                    return pos;
+                    return p;
                 }
             }
             return null;
         }
 
-        public static int CountEven (Node<int> l1, Node<int> child){
-            l1 = child;
+        public static int CountEvenNodes (Node<int> lst, Node<int> node){
+            lst = node;
+            if(lst == null){
+                return 0;
+            }
 
-            if(l1 == null){return 0;}
+            if (lst.GetValue() % 2 == 0)
+                return 1 + CountEvenNodes(lst, node.GetNext());
+            return CountEvenNodes(lst, node.GetNext());
+        }
+
+        public static int EvenIndexes (Node<int> lst){
+            if(lst == null){ 
+                return 0;
+            }
+
+            Console.WriteLine(lst.GetValue());
+            return EvenIndexes(lst.GetNext().GetNext());
+        }
+
+        public static int SumRange (Node<int> lst, Node<int> p1, Node<int> p2){
+            lst = p1;
+            if(lst == null){
+                return 0;
+            }else if(lst == p2){
+                return lst.GetValue();
+            }
+            return lst.GetValue() + SumRange(lst, p1.GetNext(), p2);
+        }
+
+        public static bool IsExists<T>(Node<T> lst, T value){
+            if (lst == null){
+                return false;
+            }
             
-            if (l1.GetValue() % 2 == 0)
-                return 1 + CountEven(l1, child.GetNext());
-            return CountEven(l1, child.GetNext());
+            if (lst.GetValue().Equals(value)){
+                return true;
+            }
+            return (IsExists(lst.GetNext(), value));
         }
 
-        public static int DoubleIndexes (Node<int> l1){
-            if(l1 == null){ return 0;}
-            Console.WriteLine(l1.GetValue());
-            return DoubleIndexes(l1.GetNext().GetNext());
+        public static Node<T> CopyList<T>(Node<T> lst){
+            Node<T> p = lst, newList = null;
+
+            while(p != null){
+                AddNode(newList, new Node<T>(p.GetValue()));
+                p = p.GetNext();
+            }
+            return newList;
         }
 
-        public static int SumIndexesFromTwoPoints (Node<int> lst, Node<int> p, Node<int> q){
-            lst = p;
-            if(lst == null || lst == q){return 0;}
-            return 1 + SumIndexesFromTwoPoints(lst, p.GetNext(), q);
+        public static int SumList (Node<int> lst){
+            Node<int> p = lst;
+            if (p == null)
+                return 0;
+
+            return p.GetValue() + SumList(p.GetNext());
         }
 
-        // public static int MostRolled(Node<Backgammon> lst){
-        //     int[] counters = {0,0,0,0,0,0,0};
-        //     int max = 0, maxI = 0;
+        public static int CountLength<T> (Node<T> lst){
+            Node<T> p = lst;
+            if (p == null)
+                return 0;
 
-        //     while (lst != null){
-        //         counters[lst.GetValue().GetDice1()]++;
-        //         counters[lst.GetValue().GetDice2()]++;
-        //         lst = lst.GetNext();
-        //     }
+            return 1 + CountLength(p.GetNext());
+        }
 
-        //     for (int i = 1; i < counters.Length; i++){
-        //         if (counters[i] > max){
-        //             maxI = i;
-        //             max = counters[i];
-        //         }
-        //     }
-        //     return maxI;
-        // }
+        public static double AvgFlowerHeights (Node<Flower> lst){
+            Node<Flower> p = lst;
+            int counter = CountLength(lst);
+            double sum = 0;
 
-        // public static Node<char> CreateCharList(Node<TavNum> lst){
-        //     Node<char> temp = lst, my_list = null, mit = null;
+            while (p != null){
+                sum += p.GetValue().GetHeight();
+            }
 
-        //     while(temp != null){
-        //         for (int i = 0; i < temp.GetValue().GetNum(); i++)
-        //         {
-        //             mit = new Node<char>(temp.GetValue().GetChar());
-        //             AddNode(my_list, mit);
-        //         }
-        //         temp = temp.GetNext();
-        //     }
-        //     return my_list;
-        // }
-
-
-        // public static Node<Polynom> SumOfPolynomLists(Node<Polynom> lst1, Node<Polynom> lst2){
-        //     Node<Polynom> result = null, p1 = lst1, p2 = lst2, p3 = result;
-        //     bool flag = false;
-
-        //     while (p1 != null){
-        //         flag = false;
-        //         while(p2 != null){
-        //             if (p1.GetValue().GetN() == p2.GetValue().GetN()){
-        //                 flag = true;
-        //                 p3 = new Node<Polynom>(p1.GetValue().GetX() + p2.GetValue().GetX());
-        //                 AddNode(result, p3);
-        //             }
-        //             p2 = p2.GetNext();
-        //         }
-        //         p1 = p1.GetNext();  
-
-        //         if(!flag)
-        //             AddNode(result, p1); 
-        //     }
-        //     p2 = lst2;
-        //     while (p2 != null){
-        //         if (!IsExists(result, p2.GetValue().GetN()))
-        //             AddNode(result, p2);
-        //         p2 = p2.GetNext();
-        //     }
-        //     return result;
-        // }
-
-        // public static Node<Polynom> AddNode(Node<Polynom> lst, Node<Polynom> p){
-        //     Node<Polynom> head = lst;
-
-        //     if (head == null){
-        //         head = p;
-        //     }else{
-        //         while(head.GetNext() != null){
-        //             head = head.GetNext();
-        //         head.SetNext(p);
-        //         }
-        //     }
-        //     return head;
-        // }
-
-        // public static bool IsExists(Node<Polynom> n, int value){
-        //     while (n != null){
-        //         if (n.GetValue().GetN() == value)
-        //             return true;
-        //         n = n.GetNext();
-        //     }
-        //     return false;
-        // }
+            return (sum / counter);
+        }
     }
 }

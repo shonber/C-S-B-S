@@ -1,7 +1,6 @@
 using System;
 
-namespace cshrap
-{
+namespace C_S_B_S{
     public class Node<T>{
         private T value;
         private Node<T> next;
@@ -30,11 +29,10 @@ namespace cshrap
 
         public override string ToString()
         {
-                    if (this.next == null){
-            return this.value + " --> " + "null";
+            if (this.next == null){
+                return this.value + " --> " + "null";
+            }
+            return this.value + " --> " + this.next;
         }
-        return this.value + " --> " + this.next;
-        }
-
     }
 }

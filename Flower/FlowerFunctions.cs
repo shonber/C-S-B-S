@@ -1,11 +1,10 @@
 using System;
 
-namespace cshrap
-{
-    public class MainFlower{
+namespace C_S_B_S{
+    public class FlowerFunctions{
         public static Node<Flower> CreateFlowerList(){
-            Flower f = null, f1 = null;
-            Node<Flower> flowerList = null,  temp = flowerList;
+            Flower f = null;
+            Node<Flower> flowerList = null,  temp = null;
 
             Console.Write("[!] Flower Name: ");
             string name = Console.ReadLine();
@@ -19,8 +18,8 @@ namespace cshrap
             Console.Write("[!] Flower height: ");
             double height = double.Parse(Console.ReadLine());
 
-            f1 = new Flower(name, height, color, season);
-            flowerList = new Node<Flower>(f1);
+            f = new Flower(name, height, color, season);
+            flowerList = new Node<Flower>(f);
 
             for(int i=0; i<5; i++){
                 Console.Write("[!] Flower Name: ");
@@ -42,32 +41,35 @@ namespace cshrap
             return flowerList;
         }
 
-        public static Node<Flower> AddNode(Node<Flower> nodeList, Node<Flower> add){
-            Node<Flower> head = nodeList;
+        public static Node<Flower> AddNode(Node<Flower> lst, Node<Flower> node){
+            Node<Flower> p = lst;
 
-            if (head == null){
-                head = add;
+            if (p == null){
+                p = node;
             }else{
-                while(head.HasNext())
-                    head = head.GetNext();
-                head.SetNext(add);
+                while(p.HasNext())
+                    p = p.GetNext();
+                p.SetNext(node);
             }
-            return head;
+            return p;
         }
 
-        public static void SameColorSeason(Node<Flower> flowerList, string color){
-            while(flowerList != null){
-                if (flowerList.GetValue().GetColor() == color)
-                    Console.WriteLine(flowerList.GetValue());
-                flowerList = flowerList.GetNext();
+        public static void SameColorSeason(Node<Flower> lst, string color){
+            Node<Flower> p = lst;
+
+            while(p != null){
+                if (p.GetValue().GetColor() == color)
+                    Console.WriteLine(p.GetValue());
+                p = p.GetNext();
             }
         }
 
-        public static void MostFlowerSeason(Node<Flower> flowerList){
+        public static void MostCommonSeason(Node<Flower> lst){
             int countFall = 0, countWinter = 0, countSpring = 0, countSummer = 0, maxNumber = 0;
+            Node<Flower> p = lst;
 
-            while(flowerList != null){
-                switch(flowerList.GetValue().GetSeason()){
+            while(p != null){
+                switch(p.GetValue().GetSeason()){
                     case "summer":
                         countSummer++;
                         break;
@@ -81,10 +83,10 @@ namespace cshrap
                         countSpring++;
                         break;
                 }
-                flowerList = flowerList.GetNext();
+                p = p.GetNext();
             }
 
-            maxNumber = Math.Max(countFall, Math.Max(countWinter, Math.Max(countSpring, countSummer)));
+        maxNumber = Math.Max(countFall, Math.Max(countWinter, Math.Max(countSpring, countSummer)));
 
             if(maxNumber == countFall){Console.WriteLine("Fall");}
             if(maxNumber == countWinter){Console.WriteLine("Winter");}
