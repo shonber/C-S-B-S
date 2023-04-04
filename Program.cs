@@ -43,20 +43,19 @@ namespace C_S_B_S
 
 
             // Node 
-            Node<char> n1 = new Node<char>('a', new Node<char>('b', new Node<char>('5', new Node<char>('$', new Node<char>('A', new Node<char>('4'))))));
-            Console.WriteLine();
-            Console.WriteLine($"Node<T> : {n1}");
-            Console.WriteLine(NodeFunctions.IsExists(n1, '5'));
+            // Node<char> n1 = new Node<char>('a', new Node<char>('b', new Node<char>('5', new Node<char>('$', new Node<char>('A', new Node<char>('4'))))));
+            // Console.WriteLine();
+            // Console.WriteLine($"Node<T> : {n1}");
+            // Console.WriteLine(NodeFunctions.IsExists(n1, '5'));
 
 
             // IntNode 
-            IntNode n2 = new IntNode(3, new IntNode(0, new IntNode(5, new IntNode(7, new IntNode(9, new IntNode(10))))));
-            Console.WriteLine();
-            Console.WriteLine($"IntNode : {n2}");
+            // IntNode n2 = new IntNode(3, new IntNode(0, new IntNode(5, new IntNode(7, new IntNode(9, new IntNode(10))))));
+            // Console.WriteLine();
+            // Console.WriteLine($"IntNode : {n2}");
 
 
             // Queue 
-
         }
     }
 }

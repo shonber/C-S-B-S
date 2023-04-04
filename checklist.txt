@@ -11,3 +11,18 @@ BinNodeFunctions -
 Stack - 
 StackFunctions - 
 
+Clases:
+___________________
+
+Product - V
+Point - V
+Book - V
+Scout - V
+User - V
+Circle - V
+Square - 
+Trinagle - 
+Jumper - 
+Student - 
+Date - 
+Song - 
