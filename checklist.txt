@@ -20,9 +20,10 @@ Book - V
 Scout - V
 User - V
 Circle - V
-Square - 
-Trinagle - 
-Jumper - 
-Student - 
-Date - 
+Student - V
+Date - V
 Song - 
+Playlist - 
+Square - 
+Triangle - 
+Jumper - 

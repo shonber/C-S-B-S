@@ -56,6 +56,21 @@ namespace C_S_B_S
 
 
             // Queue 
+
+
+            // Song Class
+            Song[] playlist = new Song[50];
+            int taken_spaces = 0;
+
+            playlist[0] = new Song("abc", "AAAA", 5.41);
+            playlist[1] = new Song("def", "BBBB", 2.55);
+            taken_spaces = 2;
+
+            foreach (Song value in playlist)
+            {
+                Console.WriteLine(value);
+            }
+
         }
     }
 }
