@@ -22,8 +22,8 @@ User - V
 Circle - V
 Student - V
 Date - V
-Song - 
-Playlist - 
+Song - V
+Playlist - V
 Square - 
 Triangle - 
 Jumper - 
