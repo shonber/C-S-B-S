@@ -6,12 +6,6 @@ public class Circle{
     private int centerX;
     private int centerY;
 
-    public Circle(){
-        this.radius = 0.0;
-        this.centerX = 0;
-        this.centerY = 0;
-    }
-
     public Circle(double r, int x, int y){
         this.radius = r;
         this.centerX = x;

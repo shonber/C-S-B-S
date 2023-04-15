@@ -24,6 +24,6 @@ Student - V
 Date - V
 Song - V
 Playlist - V
-Square - 
-Triangle - 
+Square - V
+Triangle - V
 Jumper - 

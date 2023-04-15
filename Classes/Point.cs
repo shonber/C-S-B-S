@@ -1,3 +1,5 @@
+using System;
+
 public class Point{
     private int x;
     private int y;
@@ -15,6 +17,10 @@ public class Point{
     public Point(Point point){
         this.x = point.GetX();
         this.y = point.GetY();
+    }
+
+    public double Distance(Point p){
+    return Math.Sqrt(Math.Pow((this.x - p.GetX()),2) + Math.Pow((this.y - p.GetY()),2));
     }
 
     public int GetX(){ return this.x; }
