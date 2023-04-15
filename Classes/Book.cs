@@ -5,7 +5,7 @@ public class Book{
     private string publisher;
     private int year; // publish year
     private double cost;
-
+    private static int counter = 0;
 
     // Methods
     // Constructors
@@ -15,6 +15,7 @@ public class Book{
         this.publisher = "";
         this.year = 0;
         this.cost = 0.0;
+        counter++;
     }
 
     public Book(string t, string a, string p, int y, double c){

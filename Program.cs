@@ -70,20 +70,15 @@ namespace C_S_B_S
             // {
             //     Console.WriteLine(value);
             // }
-        }
 
-        public static BilList GenerateBilist (Node<int> lst){
-            Node<int> p1 = lst;
-            Node<int> p2 = lst;
+        LongJump athlet1 = new LongJump("MikePowel");
+        LongJump athlet2 = new LongJump("BobBeamon");
+        athlet1.ValidJump(8.95);
+        athlet1.ValidJump(8.95);
+        athlet1.InvalidJump();
+        athlet1.ValidJump(12);
 
-            while (p1 != null){
-                while(p2 != null){
-                    if (p1.GetValue() > p2.GetValue()){
-                        p2 = p2.GetNext();
-                    }
-                }
-                p1 = p1.GetNext();
-            }
+        Console.WriteLine(athlet1);
         }
     }
 }
