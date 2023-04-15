@@ -11,7 +11,7 @@ BinNodeFunctions -
 Stack - 
 StackFunctions - 
 
-Clases:
+Classes:
 ___________________
 
 Product - V
@@ -26,4 +26,4 @@ Song - V
 Playlist - V
 Square - V
 Triangle - V
-Jumper - 
+Jumper - V
