@@ -31,54 +31,9 @@ namespace C_S_B_S
             // BinNodeFunctions.PostOrderScan(bt); // 4 5 2 6 3 1
             // Console.WriteLine();
 
-            // Console.WriteLine(bt);
-
-            // Console.WriteLine();
-
-            // Console.WriteLine(BinNodeFunctions.Count2Child(bt));
-
-            // Console.WriteLine();
-
-            // Console.WriteLine(BinNodeFunctions.IsExists(bt, 6));
-
-
-            // Node 
-            // Node<char> n1 = new Node<char>('a', new Node<char>('b', new Node<char>('5', new Node<char>('$', new Node<char>('A', new Node<char>('4'))))));
-            // Console.WriteLine();
-            // Console.WriteLine($"Node<T> : {n1}");
-            // Console.WriteLine(NodeFunctions.IsExists(n1, '5'));
-
-
-            // IntNode 
-            // IntNode n2 = new IntNode(3, new IntNode(0, new IntNode(5, new IntNode(7, new IntNode(9, new IntNode(10))))));
-            // Console.WriteLine();
-            // Console.WriteLine($"IntNode : {n2}");
-
-
-            // Queue 
-
-
-            // Song Class
-            // Song[] playlist = new Song[50];
-            // int taken_spaces = 0;
-
-            // playlist[0] = new Song("abc", "AAAA", 5.41);
-            // playlist[1] = new Song("def", "BBBB", 2.55);
-            // taken_spaces = 2;
-
-            // foreach (Song value in playlist)
-            // {
-            //     Console.WriteLine(value);
-            // }
-
-        LongJump athlet1 = new LongJump("MikePowel");
-        LongJump athlet2 = new LongJump("BobBeamon");
-        athlet1.ValidJump(8.95);
-        athlet1.ValidJump(8.95);
-        athlet1.InvalidJump();
-        athlet1.ValidJump(12);
-
-        Console.WriteLine(athlet1);
+            string str1 = "HiBHiBHiBHi";
+            string str2 = "Hi";
+            Console.WriteLine(str1.LastIndexOf(str2, 4)); // 3
         }
     }
 }

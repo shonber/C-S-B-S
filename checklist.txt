@@ -1,29 +1,44 @@
-Node - V
-NodeFunctions - V
-Flower - V
-FlowerFunctions - V
-IntNode - V
-IntNodeFunctions - 
+Data Structures:
+___________________
+
+Node -
+Flower -
+IntNode - 
 Queue - 
-QueueFunctions - 
 BinNode - 
-BinNodeFunctions - 
 Stack - 
-StackFunctions - 
 
 Classes:
 ___________________
 
-Product - V
-Point - V
-Book - V
-Scout - V
-User - V
-Circle - V
-Student - V
-Date - V
-Song - V
-Playlist - V
-Square - V
-Triangle - V
-Jumper - V
+Product - 
+Point - 
+Book - 
+Scout - 
+User - 
+Circle - 
+Student - 
+Date - 
+Song - 
+Playlist - 
+Square - 
+Triangle - 
+Jumper - 
+Car - 
+Truck - 
+Motocycle - 
+Tire - 
+Engine - 
+Flower - 
+Subject - 
+
+Service Classes:
+___________________
+
+ArrayFunctions - 
+NodeFunctions - 
+FlowerFunctions - 
+IntNodeFunctions - 
+QueueFunctions - 
+BinNodeFunctions - 
+StackFunctions - 
