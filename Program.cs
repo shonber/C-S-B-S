@@ -31,9 +31,11 @@ namespace C_S_B_S
             // BinNodeFunctions.PostOrderScan(bt); // 4 5 2 6 3 1
             // Console.WriteLine();
 
-            string str1 = "HiBHiBHiBHi";
-            string str2 = "Hi";
-            Console.WriteLine(str1.LastIndexOf(str2, 4)); // 3
+            Node<int> lst = new Node<int>(1);
+            NodeFunctions.AddNode<int>(lst, new Node<int> (5));
+            NodeFunctions.AddNode<int>(lst, new Node<int> (2));
+            Console.WriteLine(lst);
+
         }
     }
 }
