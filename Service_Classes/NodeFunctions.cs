@@ -48,6 +48,17 @@ namespace C_S_B_S{
             return p;
         }
 
+        public static Node<int> GetPrev(Node<int> lst, Node<int> node){
+            Node<int> p = lst;
+
+            if (p == node)
+                return null;
+
+            while (p.GetNext() != node)
+                p = p.GetNext();
+            return p;
+        }
+
         public static Node<string> IsSortedString(Node<string> lst){
             // Checks if the list<string> nodes are sorted in the ABCs. 
             // Returns the string that destroys the UpSort.
